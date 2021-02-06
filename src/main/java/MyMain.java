@@ -42,14 +42,26 @@ public class MyMain {
 
     // Wrapper method
     public static boolean binarySearch(int[] arr, int num) {
-        // YOUR CODE HERE
-        return false;
+        return binarySearch(arr, num, lowerBound, upperBound);
     }
 
     // This recursive method calls binary search on the array
-    public static boolean binarySearchRec(int[] arr, int num, int lowerBound, int upperBound) {        
-        // YOUR CODE HERE
-        return false;
+    public static boolean binarySearchRec(int[] arr, int num, int lowerBound, int upperBound) {    
+    int midpoint = (lowerBound + upperBound)/2;    
+    if (lowerBound > upperBound) {
+        return true;
+    }
+    if (num == arr[midpoint]) {
+        return true;
+    }
+    else if (num < arr[midpoint]) {
+        int new_up = midpoint-1;
+        return binarySearchRec(arr, num, lowerBound, new_up);
+    }
+    else {
+        int new_up_2 = midpoint-1;
+        return binarySearchRec(arr, num, lowerBound, new_up_2);
+        }
     }
 
     public static void main(String[] args) {
